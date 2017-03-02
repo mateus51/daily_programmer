@@ -27,6 +27,17 @@ def create_input_file():
 			f.close()
 		return
 
+
+def desc_digits(number):
+	sep_nums = [int(i) for i in str(number)]
+	sep_nums.sort(reverse=True)
+
+	a = ''.join(str(num) for num in sep_nums) 	# Can also use a map here, though i think this is more efficient
+	print("desc_digits({0}) -> {1}".format(number, a))
+
+	return a
+
+
 def largest_digit(number):
 	if(number > 9999):
 		print("The input has to be 4-digit or less")
@@ -59,4 +70,9 @@ largest_digit(3333)
 largest_digit(12345)
 largest_digit(2000)
 largest_digit(123)
+
+desc_digits(4562)
+desc_digits(3445)
+desc_digits(1234)
+desc_digits(6758)
 
