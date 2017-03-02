@@ -32,7 +32,7 @@ def desc_digits(number):
 	sep_nums = [int(i) for i in str(number)]
 	sep_nums.sort(reverse=True)
 
-	a = ''.join(str(num) for num in sep_nums) 	# Can also use a map here, though i think this is more efficient
+	a = ''.join(str(num) for num in sep_nums) 	# Can also use map here, although i think this is more efficient
 	print("desc_digits({0}) -> {1}".format(number, a))
 
 	return a
