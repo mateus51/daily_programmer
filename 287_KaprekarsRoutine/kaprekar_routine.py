@@ -29,14 +29,37 @@ def create_input_file():
 
 
 def desc_digits(number):
-	sep_nums = [int(i) for i in str(number)]
-	sep_nums.sort(reverse=True)
+	separate_numbers = [int(i) for i in str(number)]
+	separate_numbers.sort(reverse=True)
 
-	a = ''.join(str(num) for num in sep_nums) 	# Can also use map here, although i think this is more efficient
-	print("desc_digits({0}) -> {1}".format(number, a))
+	a = ''.join(str(num) for num in separate_numbers) 	# Can also use map here, although i think this is more efficient
+	#print("desc_digits({0}) -> {1}".format(number, a))
 
 	return a
 
+def asc_digits(number):
+	separate_numbers = [int(i) for i in str(number)]
+	separate_numbers.sort()
+
+	a = ''.join(str(i) for i in separate_numbers)
+	#print("asc_digits({0}) -> {1}".format(number, a))
+
+	return a
+
+def kaprekar_routine(number):
+	kap_constant = 6174
+	iterations = 0
+
+	print("---Kaprekar Routine: {0}---".format(number))
+	while(number != kap_constant):
+		asc_num = int(asc_digits(number))
+		desc_num = int(desc_digits(number))
+
+		number = desc_num - asc_num
+		iterations += 1
+
+	print("iterations: {0}".format(iterations))
+	return iterations
 
 def largest_digit(number):
 	if(number > 9999):
@@ -76,3 +99,9 @@ desc_digits(3445)
 desc_digits(1234)
 desc_digits(6758)
 
+asc_digits(3461)
+asc_digits(9876)
+asc_digits(3433)
+
+kaprekar_routine(7149)
+kaprekar_routine(9218)
